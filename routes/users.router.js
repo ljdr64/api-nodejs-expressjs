@@ -1,36 +1,19 @@
 const express = require('express');
-const { faker } = require('@faker-js/faker');
+
+const UsersService = require('./../services/users.service');
+const service = new UsersService();
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const users = [];
-  const { size } = req.query;
-  const limit = size || 10;
-  for (let index = 0; index < limit; index++) {
-    users.push({
-      firstName: faker.name.firstName(),
-      lastName: faker.name.lastName(),
-      job: faker.name.jobType(),
-    });
-  }
+  const users = service.find();
   res.json(users);
 });
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  if (id === '999') {
-    res.status(404).json({
-      message: 'not found',
-    });
-  } else {
-    res.status(200).json({
-      id,
-      firstName: 'First Name 2',
-      lastName: 'Last Name 2',
-      job: 'Job 2',
-    });
-  }
+  const user = service.findOne(id);
+  res.json(user);
 });
 
 router.post('/', (req, res) => {
