@@ -10,10 +10,14 @@ router.get('/', async (req, res) => {
   res.json(categories);
 });
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const category = await service.findOne(id);
-  res.json(category);
+router.get('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const category = await service.findOne(id);
+    res.json(category);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post('/', async (req, res) => {

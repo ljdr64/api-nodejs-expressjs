@@ -32,6 +32,8 @@ class ProductsService {
   }
 
   async findOne(id) {
+    // El método getTotal() no existe, este error sera capturado por nuestros middlewares.
+    const name = this.getTotal();
     return this.products.find((item) => item.id === id);
   }
 
