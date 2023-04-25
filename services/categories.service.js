@@ -17,7 +17,7 @@ class CategoriesService {
     }
   }
 
-  create(data) {
+  async create(data) {
     const newCategory = {
       id: faker.datatype.uuid(),
       ...data,
@@ -26,15 +26,15 @@ class CategoriesService {
     return newCategory;
   }
 
-  find() {
+  async find() {
     return this.categories;
   }
 
-  findOne(id) {
+  async findOne(id) {
     return this.categories.find((item) => item.id === id);
   }
 
-  update(id, changes) {
+  async update(id, changes) {
     const index = this.categories.findIndex((item) => item.id === id);
     if (index === -1) {
       throw new Error('category not found');
@@ -47,7 +47,7 @@ class CategoriesService {
     return this.categories[index];
   }
 
-  delete(id) {
+  async delete(id) {
     const index = this.categories.findIndex((item) => item.id === id);
     if (index === -1) {
       throw new Error('category not found');
