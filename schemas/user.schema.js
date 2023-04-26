@@ -1,9 +1,9 @@
 const Joi = require('joi');
 
 const id = Joi.string().uuid();
-const firstName = Joi.string().alphanum().min(3).max(15);
-const lastName = Joi.string().alphanum().min(3).max(15);
-const job = Joi.string().alphanum().min(3).max(15);
+const firstName = Joi.string().min(3).max(15);
+const lastName = Joi.string().min(3).max(15);
+const job = Joi.string().min(3).max(15);
 
 const createUserSchema = Joi.object({
   firstName: firstName.required(),

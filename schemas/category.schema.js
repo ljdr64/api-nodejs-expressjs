@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const id = Joi.string().uuid();
-const name = Joi.string().alphanum().min(3).max(15);
+const name = Joi.string().min(3).max(15);
 const stock = Joi.number().integer().min(0).max(100);
 
 const createCategorySchema = Joi.object({
