@@ -9,27 +9,29 @@ const {
 } = require('./middlewares/error.handler');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = ['http://127.0.0.1:5500', 'https://myapp.com'];
-const options = {
-  origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('no permitido'));
-    }
-  },
-};
-app.use(cors(options));
+// const whitelist = ['http://127.0.0.1:5500', 'https://myapp.com'];
+// const options = {
+//   origin: (origin, callback) => {
+//     if (whitelist.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('no permitido'));
+//     }
+//   },
+// };
+// app.use(cors(options));
 
-app.get('/', (req, res) => {
+app.use(cors());
+
+app.get('/api/', (req, res) => {
   res.send('<h1>Hola mi server en express</h1>');
 });
 
-app.get('/nueva-ruta', (req, res) => {
+app.get('/api/nueva-ruta', (req, res) => {
   res.send('<h1>Hola, soy una nueva ruta</h1>');
 });
 
