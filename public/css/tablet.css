@@ -1,0 +1,6 @@
+.main-tables-container {
+  justify-content: center;
+  overflow-x: initial;
+  overscroll-behavior: initial;
+  scroll-snap-type: initial;
+}
