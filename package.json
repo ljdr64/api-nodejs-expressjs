@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "keywords": [],
-  "author": "",
+  "author": "Laureano Rodriguez",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.39.0",
