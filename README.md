@@ -1,5 +1,6 @@
 # API rest con Express Js
 ### Creamos desde cero una API rest con Express Js. Proyecto del Curso de Backend con Node Js de Platzi.
+![backend-node-express-pagina-principal](https://github.com/ljdr64/api-nodejs-expressjs/assets/77581853/a0a6eab5-73b1-49db-9652-5c78d50e89d2)
 ## Routes
 ### Products
 - [ GET ] --> /api/v1/products
